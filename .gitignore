@@ -1,0 +1,14 @@
+# 忽略日志文件
+youtube_video_info.log
+
+# 忽略 .env 文件（如果有敏感信息）
+.env
+
+# 忽略 Python 缓存目录
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 其他需要忽略的文件或目录
+V2RayFiles/
