@@ -2,6 +2,7 @@ import os
 import requests
 from datetime import datetime
 from dotenv import load_dotenv
+from logger_config import setup_logger, log_info
 
 def get_latest_video_info(channel_handle):
     """
@@ -82,6 +83,11 @@ def get_latest_video_info(channel_handle):
             return None, formatted_date, video_title
 
         description = data["items"][0]["snippet"]["description"]
+
+        # 打印视频说明信息
+        # log_info(f"++++++++++++++++最新视频信息: {video_title}")
+        # log_info(f"++++++++++++++++发布时间: {formatted_date}")
+        # log_info(f"++++++++++++++++说明: {description}")
 
         return description, formatted_date, video_title
 

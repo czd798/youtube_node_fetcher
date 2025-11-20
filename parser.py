@@ -7,7 +7,8 @@ def extract_node_url(description: str) -> str | None:
         return None
 
     for line in description.splitlines():
-        if "本期免费节点获取地址" in line:
+        # if "本期免费节点获取地址" in line:
+        if "免费节点获取地址" in line:
             http_pos = line.find("http")
             if http_pos != -1:
                 return line[http_pos:].strip()
@@ -26,7 +27,7 @@ def find_subscription_context_with_links(node_url: str) -> list[str]:
     results = set()
 
     for tag in soup.find_all(string=re.compile("订阅")):
-        nearby = tag.parent.find_all_next(string=True, limit=5)
+        nearby = tag.parent.find_all_next(string=True, limit=10)
         combined_text = " ".join(nearby)
         links = re.findall(r"https://[^\s\"'>]+", combined_text)
 
